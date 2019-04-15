@@ -1,55 +1,54 @@
-import React from 'react';
-import './Todo.css';
+import React from "react";
+import "./Todo.css";
+import { connect } from "react-redux";
+import { addTodo } from "../actions/index";
 
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      taskName: ''
-    }
+      taskName: ""
+    };
   }
 
   inputChangeHandler = e => {
-    this.setState({taskName: e.target.value})
-  }
+    this.setState({ taskName: e.target.value });
+  };
 
   onSubmit = e => {
     if (this.state.taskName.length) {
-      this.props.addTodo(this.state.taskName)(e);
-      this.setState({taskName: ''});
+      e.preventDefault();
+      this.props.dispatch(addTodo(this.state.taskName));
+      this.setState({ taskName: "" });
     } else {
       e.preventDefault();
     }
-  }
+  };
 
   render() {
     return (
       <form onSubmit={this.onSubmit}>
         <div className="ui input">
-          <input 
+          <input
             name="taskName"
             value={this.state.taskName}
-            placeholder="...todo" 
+            placeholder="...todo"
             onChange={this.inputChangeHandler}
           />
         </div>
-        <button 
-          type="submit" 
-          className="ui button first-button"
-        >
+        <button type="submit" className="ui button first-button">
           Add Todo
         </button>
-        <button 
-          type="button" 
-          className="ui button second-button" 
+        {/* <button
+          type="button"
+          className="ui button second-button"
           onClick={this.props.clearCompletedTodos}
         >
           Clear Completed
-        </button>
+        </button> */}
       </form>
     );
   }
-} 
+}
 
-
-export default TodoForm;
+export default connect()(TodoForm);
