@@ -1,6 +1,6 @@
-import React from 'react';
-import Todo from './Todo';
-import './Todo.css';
+import React from "react";
+import Todo from "./Todo";
+import "./Todo.css";
 
 const TodoList = props => (
   <div className="ui segment">
@@ -9,12 +9,12 @@ const TodoList = props => (
         <Todo
           task={t}
           toggleTodoCompletion={props.toggleTodoCompletion}
+          deleteTodo={props.deleteTodo}
           key={t.id}
         />
       ))}
     </div>
   </div>
 );
-
 
 export default TodoList;
