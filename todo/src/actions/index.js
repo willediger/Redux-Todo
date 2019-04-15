@@ -1,9 +1,8 @@
-export const ADD_TODO = "ADD_TODO";
-export const TOGGLE_TODO = "TOGGLE_TODO";
+import * as ACTION_TYPES from "../actions/actionTypes";
 
 let nextTodoId = 0;
 export const addTodo = task => ({
-  type: ADD_TODO,
+  type: ACTION_TYPES.ADD_TODO,
   payload: {
     id: nextTodoId++,
     task,
@@ -12,7 +11,14 @@ export const addTodo = task => ({
 });
 
 export const toggleTodo = id => ({
-  type: TOGGLE_TODO,
+  type: ACTION_TYPES.TOGGLE_TODO,
+  payload: {
+    id
+  }
+});
+
+export const deleteTodo = id => ({
+  type: ACTION_TYPES.DELETE_TODO,
   payload: {
     id
   }
