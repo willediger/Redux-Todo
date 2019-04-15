@@ -1,0 +1,30 @@
+.completed {
+  text-decoration: line-through;
+}
+
+.ui.segment {
+  width: 462px;
+}
+
+.ui.list>.item.filtered {
+  display: none;
+}
+
+.ui.input, .ui.button {
+  height: 36px;
+  margin-right: 11px;
+}
+
+form {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 11px;
+}
+
+.first-button {
+  width: 102px;
+}
+
+.second-button {
+  width: 158px;
+}
